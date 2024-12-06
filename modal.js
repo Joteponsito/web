@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const openPrivacy = document.getElementById('openPrivacy');
     const modal = document.getElementById('myModal');
     const modalContent = document.getElementById('modalContent');
+
+    // Esperar a que el modal y el botón de cerrar estén cargados
     const closeButton = document.querySelector('.close-button');
 
     // Función para mostrar el modal con contenido
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showModal(privacyContent);
     });
 
-   // Cerrar el modal cuando se hace clic en el botón de cerrar
+    // Cerrar el modal cuando se hace clic en el botón de cerrar
     closeButton.addEventListener("click", function () {
         modal.style.display = "none"; // Ocultar el modal
     });
