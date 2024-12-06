@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="compartir.css">
+    <script type="module" src="firebase-form.js"></script>
+    <script src="firebaseauth.js"></script>
+    <title>Formulario de Registro</title>
+</head>
+<body>
+    <header class="header">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/servicentrocruzdelsur/" target="_blank" class="icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="icon">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+        <button class="share-button" onclick="toggleShareMenu()">Compartir</button>
+    </header>
+
+    <div class="share-menu" id="shareMenu">
+        <ul>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=PAGE_URL" target="_blank">Facebook</a></li>
+            <li><a href="https://api.whatsapp.com/send?text=PAGE_URL" target="_blank">WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/share?url=PAGE_URL" target="_blank">Instagram</a></li>
+        </ul>
+    </div>
+
+    <div class="form-container">
+        <img src="imagenes/formm.png" alt="Imagen del sorteo" class="form-image">
+        <h1 class="form-title">Formulario de Registro</h1>
+        <p class="form-description">Completa todos los campos para entrar en el sorteo</p>
+
+        <form id="registrationForm" class="registration-form">
+            <div class="form-group">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre*" required>
+                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos*" required>
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email*" required>
+                <input type="email" id="verifyEmail" name="verify-email" placeholder="Verificar E-Mail*" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="factura" name="factura" placeholder="Número de factura (compras mayores a 10,000 de combustible)*" required>
+            </div>
+
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" name="terms" required>
+                    He leído y acepto las <a href="#" target="_blank">condiciones de uso</a>.
+                </label>
+                <label>
+                    <input type="checkbox" name="privacy" required>
+                    He leído y acepto la <a href="#" target="_blank">política de privacidad</a>.
+                </label>
+            </div>
+
+            <button type="submit" class="submit-button" >Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

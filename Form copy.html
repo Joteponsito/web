@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="compartir copy.css	">
+    <script src="firebaseauth.js"></script>
+    <title>Formulario de Registro</title>
+</head>
+<body>
+    <header class="header">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/servicentrocruzdelsur/" target="_blank" class="icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="icon">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+
+           
+        </div>
+        <button class="share-button" onclick="toggleShareMenu()">Compartir</button>
+    </header>
+
+    <div class="share-menu" id="shareMenu">
+        <ul>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=PAGE_URL" target="_blank">Facebook</a></li>
+            <li><a href="https://api.whatsapp.com/send?text=PAGE_URL" target="_blank">WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/share?url=PAGE_URL" target="_blank">Instagram</a></li>
+        </ul>
+    </div>
+
+    <div class="form-container">
+        <img src="imagenes/image-removebg-preview (16).png" alt="Imagen del sorteo" class="form-image" >
+        <h1 class="form-title">¡Muchas Gracias por participar!</h1>
+       
+
+        
+        <button class="share-button" onclick="openShareModal()">Compartir</button>
+
+        <div id="shareModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeShareModal()">&times;</span>
+                <h2>¡Comparte con tus amigos!</h2>
+                <div class="share-options">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=PAGE_URL" target="_blank" class="share-icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <p>Facebook</p>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?text=PAGE_URL" target="_blank" class="share-icon">
+                        <i class="fab fa-whatsapp"></i>
+                        <p>WhatsApp</p>
+                    </a>
+                    <a href="https://www.instagram.com/share?url=PAGE_URL" target="_blank" class="share-icon">
+                        <i class="fab fa-instagram"></i>
+                        <p>Instagram</p>
+                    </a>
+                </div>
+                <div class="share-link">
+                    <p>O comparte el enlace:</p>
+                    <div class="copy-container">
+                        <input type="text" id="pageLink" value="https://example.com" readonly>
+                        <button onclick="copyLink()">Copiar</button>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="inicio.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <header class="header">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/servicentrocruzdelsur" target="_blank" class="icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="icon">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+        <button class="share-button" onclick="toggleShareMenu()">Compartir</button>
+    </header>
+    <div class="containertexto">
+    <div class="image-text-container"><img src="imagenes/mot-removebg-preview.png" alt="" class="image">
+    <h1 class="text">🎁  Sorteo de una Moto para niños 🎁</h1>
+        <p>La Cruz del Sur te regala una moto para niños con motor de gasolina 49cc nueva tipo motocross</p> 
+</div>
+    
+    <div class="list">
+        <h3><strong>Para participar sigue estos pasos</strong></h3>
+        <ul><li>👆Completa el <strong>formulario de registro</strong> con tus datos.</li>
+        <li>✌️<strong>Comparte</strong> el sorteo con tus amigos. </li></ul>
+        🗓️ Promoción válida hasta el 2 de enero del 2025
+    </div>
+    <button class="fancy-button" onclick="window.location.href='Form.html';">¡Participa!</button>
+ 
+    <div class="share-menu" id="shareMenu">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com" target="_blank">
+            <i class="fab fa-facebook-f"></i> Compartir en Facebook
+        </a>
+        <a href="https://api.whatsapp.com/send?text=https://example.com" target="_blank">
+            <i class="fab fa-whatsapp"></i> Compartir en WhatsApp
+        </a>
+        <a href="#" onclick="alert('Copia este enlace para compartir en Instagram Stories: https://example.com')">
+            <i class="fab fa-instagram"></i> Compartir en Instagram
+        </a>
+    </div>
+</div>
+
+    <script src="firebaseauth.js"></script>
+</body>
+</html>
