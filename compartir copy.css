@@ -70,32 +70,29 @@ body {
 /* Menú de compartir */
 .share-menu {
     display: none;
-    position: fixed;
-    top: 50px;
-    right: 10px;
+    position: absolute;
+    top: 75px; /* Ajusta según el header */
+    right: 35px;
     background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 5px;
-}
-
-.share-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.share-menu ul li {
-    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 10;
 }
 
 .share-menu a {
-    color: #6e8efb;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    margin: 5px 0;
 }
 
 .share-menu a:hover {
-    text-decoration: underline;
+    color: #6e8efb;
 }
 
 /* Contenedor principal */
