@@ -5,10 +5,30 @@ const closeModal = document.getElementById("closeModal");
 const openTerms = document.getElementById("openTerms");
 const openPrivacy = document.getElementById("openPrivacy");
 
-// Abrir el modal para "Condiciones de uso"
+// Mostrar modal con contenido dinámico
+function showModal(content) {
+    modalText.innerHTML = content;
+    modal.style.display = "block";
+}
+
+// Cerrar modal
+closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Cerrar modal al hacer clic fuera del contenido
+window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+// Abrir modal con "Condiciones de uso"
 openTerms.addEventListener("click", (e) => {
     e.preventDefault();
-    modalText.innerHTML = "<h2>Condiciones de uso</h2><p>1.- EMPRESA ORGANIZADORA DE LA PROMOCIÓN
+    const termsContent = `
+        <h2>Condiciones de uso</h2>
+        <p>1.- EMPRESA ORGANIZADORA DE LA PROMOCIÓN
 La empresa La Cruz del Sur de Coto Brus S.A. con domicilio en Esterillos de Parrita, Provincia de Puntarenas y número identificativo 3-101-141840 organiza con fines promocionales el sorteo (en adelante, “la Promoción”) de ámbito nacional, a desarrollar a través de Internet, exclusivo para usuarios residentes en Costa Rica y mayores de edad de acuerdo con lo dispuesto en el apartado de condiciones para participar.
 2.-FECHA DE INICIO Y FECHA DE FINALIZACIÓN
 La Promoción se iniciará el día 02 de diciembre 2024, y finalizará el día 1 de enero 2025.
@@ -53,14 +73,17 @@ Para más información, puedes consultar la política de privacidad de [________
 Nos reservamos el derecho de modificar o ampliar estas bases promocionales, en la medida que no perjudique o menoscabe los derechos de los participantes en la Promoción.
 11.- LEGISLACIÓN APLICABLE Y JURISDICCIÓN
 Estas bases legales se regirán de conformidad con la ley [____________]. Serán competentes para resolver cualquier reclamación o controversia que pudiera plantearse en relación con la validez, interpretación o cumplimiento de estas bases los Juzgados y Tribunales de la ciudad de [____________].
-</p>";
-    modal.style.display = "block";
+</p>
+    `;
+    showModal(termsContent);
 });
 
-// Abrir el modal para "Política de privacidad"
+// Abrir modal con "Política de privacidad"
 openPrivacy.addEventListener("click", (e) => {
     e.preventDefault();
-    modalText.innerHTML = "<h2>Política de privacidad</h2><p>1.- ¿Cuál es la empresa responsable del tratamiento de sus datos?  
+    const privacyContent = `
+        <h2>Política de privacidad</h2>
+        <p>1.- ¿Cuál es la empresa responsable del tratamiento de sus datos?  
 La empresa responsable del tratamiento de sus datos es [indique aquí su nombre de empresa], con domicilio en [indique aquí su dirección de empresa] e identificada con el número de registro [indique aquí el número identificativo de su empresa] (en adelante, ORGANIZADOR).
 El Usuario podrá contactar con el ORGANIZADOR mediante correo electrónico: [____________].
 2.- ¿Por qué el ORGANIZADOR está legitimada para llevar a cabo el tratamiento de sus datos?
@@ -81,18 +104,7 @@ Ponemos en conocimiento del Usuario que podrá ejercer, en cualquier momento, su
 8.- Preguntas
 Si tiene alguna pregunta sobre la presente Política de Privacidad, le rogamos que se ponga en contacto con nosotros enviando un correo electrónico a la dirección info@[____________].com
 9.- Cambios
-El ORGANIZADOR se reserva el derecho de revisar esta Política de Privacidad en el momento que lo considere oportuno.</p>";
-    modal.style.display = "block";
-});
-
-// Cerrar el modal
-closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-});
-
-// Cerrar el modal al hacer clic fuera de él
-window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        modal.style.display = "none";
-    }
+El ORGANIZADOR se reserva el derecho de revisar esta Política de Privacidad en el momento que lo considere oportuno.</p>
+    `;
+    showModal(privacyContent);
 });
