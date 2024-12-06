@@ -202,17 +202,17 @@ input[type="email"] {
 
 .modal-content {
     background-color: #fff;
-    margin: 10% auto; /* Más margen para dispositivos pequeños */
+    margin: 10% auto;
     padding: 20px;
     border-radius: 10px;
-    width: 90%; /* Se ajusta a dispositivos pequeños */
-    max-width: 600px; /* Se mantiene razonable en pantallas grandes */
-    height: 70%; /* Define una altura fija para usar scrollbar */
-    overflow-y: auto; /* Activa la scrollbar cuando el contenido exceda la altura */
+    width: 90%;
+    max-width: 800px;
+    height: 70%; /* Fija una altura del 70% */
+    overflow-y: auto; /* Activa la scrollbar cuando el contenido excede la altura */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     text-align: left;
-    font-family: Arial, sans-serif; /* Una fuente estándar */
-    font-size: 14px; /* Tamaño de fuente claro */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
 
 /* Scrollbar personalizada */
@@ -238,12 +238,12 @@ input[type="email"] {
     cursor: pointer;
 }
 
-/* Estilo para listas en el contenido del modal */
+/* Estilo para listas */
 .modal-content ul {
-    padding-left: 20px; /* Espaciado interno */
-    list-style-type: disc; /* Tipo de viñetas */
+    padding-left: 20px;
+    list-style-type: disc;
 }
 
 .modal-content ul li {
-    margin-bottom: 10px; /* Espaciado entre viñetas */
+    margin-bottom: 10px;
 }
