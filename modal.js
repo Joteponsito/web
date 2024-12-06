@@ -51,8 +51,15 @@ document.addEventListener("DOMContentLoaded", function () {
         showModal(privacyContent);
     });
 
-    // Cerrar el modal
-    closeButton.addEventListener("click", () => {
-        modal.style.display = "none";
+   // Cerrar el modal cuando se hace clic en el botón de cerrar
+    closeButton.addEventListener("click", function () {
+        modal.style.display = "none"; // Ocultar el modal
+    });
+
+    // Cerrar el modal si se hace clic fuera del modal
+    window.addEventListener("click", function (e) {
+        if (e.target == modal) {
+            modal.style.display = "none"; // Ocultar el modal si se hace clic fuera de él
+        }
     });
 });
