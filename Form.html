@@ -52,17 +52,24 @@
 
             <div class="checkbox-group">
                 <label>
-                    <input type="checkbox" name="terms" required>
-                    He leído y acepto las <a href="#" target="_blank">condiciones de uso</a>.
+                    <a href="#" id="openTerms">Condiciones de uso</a>.
                 </label>
                 <label>
-                    <input type="checkbox" name="privacy" required>
-                    He leído y acepto la <a href="#" target="_blank">política de privacidad</a>.
+                    <a href="#" id="openPrivacy">Política de privacidad</a>.
                 </label>
             </div>
 
-            <button type="submit" class="submit-button" >Enviar</button>
+            <button type="submit" class="submit-button">Enviar</button>
         </form>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <div id="modalText"></div>
+        </div>
+    </div>
+
+    <script src="modal.js"></script>
 </body>
 </html>
