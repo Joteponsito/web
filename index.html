@@ -19,40 +19,75 @@
         </div>
         <button class="share-button" onclick="toggleShareMenu()">Compartir</button>
     </header>
-    <div class="containertexto">
-    <div class="image-text-container"><img src="imagenes/mot-removebg-preview.png" alt="" class="image">
-    <h1 class="text">🎁  Sorteo de una Moto para niños 🎁</h1>
-        <p>La Cruz del Sur te regala una moto para niños con motor de gasolina 49cc nueva tipo motocross</p> 
-</div>
     
-    <div class="list">
-        <h3><strong>Para participar sigue estos pasos</strong></h3>
-        <ul><li>👆Completa el <strong>formulario de registro</strong> con tus datos.</li>
-        <li>✌️<strong>Comparte</strong> el sorteo con tus amigos. </li></ul>
-        🗓️ Promoción válida hasta el 2 de enero del 2025
-    </div>
-    <button class="fancy-button" onclick="window.location.href='Form.html';">¡Participa!</button>
-         <br>
-   <br>
-    <div class="contador-participantes">
-        <i class="fas fa-user"></i>
-        <span id="participantCount">0</span> 
-    </div>
+    <div class="containertexto">
+        <div class="image-text-container">
+            <img src="imagenes/mot-removebg-preview.png" alt="" class="image">
+            <h1 class="text">🎁 Sorteo de una Moto para niños 🎁</h1>
+            <p>La Cruz del Sur te regala una moto para niños con motor de gasolina 49cc nueva tipo motocross</p> 
+        </div>
         
- 
-    <div class="share-menu" id="shareMenu">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://joteponsito.github.io/web/" target="_blank">
-            <i class="fab fa-facebook-f"></i> Compartir en Facebook
-        </a>
-        <a href="https://api.whatsapp.com/send?text=https://joteponsito.github.io/web/" target="_blank">
-            <i class="fab fa-whatsapp"></i> Compartir en WhatsApp
-        </a>
-        <a href="#" onclick="alert('Copia este enlace para compartir en Instagram Stories: https://joteponsito.github.io/web/')">
-            <i class="fab fa-instagram"></i> Compartir en Instagram
-        </a>
-    </div>
-</div>
+        <div class="list">
+            <h3><strong>Para participar sigue estos pasos</strong></h3>
+            <ul>
+                <li>👆Completa el <strong>formulario de registro</strong> con tus datos.</li>
+                <li>✌️<strong>Comparte</strong> el sorteo con tus amigos. </li>
+            </ul>
+            🗓️ Promoción válida hasta el 2 de enero del 2025
+        </div>
+        
+        <button class="fancy-button" onclick="window.location.href='Form.html';">¡Participa!</button>
+        <br><br>
 
+        <div class="contador-participantes">
+            <i class="fas fa-user"></i>
+            <span id="participantCount">0</span> 
+        </div>
+
+        <div class="share-menu" id="shareMenu">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://joteponsito.github.io/web/" target="_blank">
+                <i class="fab fa-facebook-f"></i> Compartir en Facebook
+            </a>
+            <a href="https://api.whatsapp.com/send?text=https://joteponsito.github.io/web/" target="_blank">
+                <i class="fab fa-whatsapp"></i> Compartir en WhatsApp
+            </a>
+            <a href="#" onclick="alert('Copia este enlace para compartir en Instagram Stories: https://joteponsito.github.io/web/')">
+                <i class="fab fa-instagram"></i> Compartir en Instagram
+            </a>
+        </div>
+    </div>
+
+    <!-- Firebase y scripts -->
+    <script type="module">
+        // Importar Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyA70hWjOOJMmgPtXDycYYcPy12bgVoErfo",
+            authDomain: "base-rifas.firebaseapp.com",
+            projectId: "base-rifas",
+            storageBucket: "base-rifas.firebasestorage.app",
+            messagingSenderId: "1027791391189",
+            appId: "1:1027791391189:web:a55e410d627f8f7466555c",
+            measurementId: "G-PRF27WGTYD"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Obtener referencia al contador
+        const participantCountElement = document.getElementById("participantCount");
+
+        // Escuchar cambios en la base de datos en tiempo real y actualizar contador
+        onSnapshot(collection(db, "participants"), (snapshot) => {
+            participantCountElement.textContent = snapshot.size;
+            console.log("Contador actualizado:", snapshot.size);
+        });
+
+    </script>
     <script src="firebaseauth.js"></script>
     <script src="firebase-form.js"></script>
 </body>
