@@ -1,17 +1,18 @@
-function toggleShareMenu() {
+// Hacer que las funciones sean accesibles globalmente
+window.toggleShareMenu = function () {
     var menu = document.getElementById("shareMenu");
     menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
+};
 
-function openShareModal() {
+window.openShareModal = function () {
     document.getElementById("shareModal").style.display = "flex";
-}
+};
 
-function closeShareModal() {
+window.closeShareModal = function () {
     document.getElementById("shareModal").style.display = "none";
-}
+};
 
-function copyLink() {
+window.copyLink = function () {
     const link = document.getElementById("pageLink");
     link.select();
     link.setSelectionRange(0, 99999); // Para dispositivos móviles
@@ -20,7 +21,7 @@ function copyLink() {
     }).catch(err => {
         alert("Hubo un error al copiar el enlace: " + err);
     });
-}
+};
 
 // Importar Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
