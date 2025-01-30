@@ -31,7 +31,7 @@ async function updateParticipantCount() {
     }
 }
 
-// Escuchar el envío del formulario (corregido)
+// Escuchar el envío del formulario
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -67,12 +67,13 @@ form.addEventListener("submit", async (e) => {
         });
 
         alert("¡Registro exitoso! Estás participando en el sorteo.");
-        window.location.href = "Form copy.html";
         form.reset();
-     
 
         // Actualizar el contador tras un nuevo registro
         updateParticipantCount();
+
+        // Redirigir a la página de confirmación
+        window.location.href = "Form copy.html";
 
     } catch (error) {
         console.error("Error al guardar los datos:", error);
@@ -82,4 +83,5 @@ form.addEventListener("submit", async (e) => {
 
 // Actualizar el contador al cargar la página
 updateParticipantCount();
+
 
