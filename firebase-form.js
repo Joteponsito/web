@@ -65,3 +65,69 @@ form.addEventListener("submit", async (e) => {
     }
 });
 
+// Contador de participantes
+const participantCountElement = document.getElementById("participantCount");
+
+// Función para obtener el conteo de participantes
+async function updateParticipantCount() {
+    try {
+        // Obtener todos los documentos en la colección "participants"
+        const participantsSnapshot = await getDocs(collection(db, "participants"));
+        const count = participantsSnapshot.size;
+
+        // Actualizar el contador en la interfaz
+        participantCountElement.textContent = count;
+    } catch (error) {
+        console.error("Error al obtener el conteo de participantes:", error);
+    }
+}
+
+// Incrementar el contador cuando alguien participa
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const apellidos = document.getElementById("apellidos").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const verifyEmail = document.getElementById("verifyEmail").value.trim();
+    const factura = document.getElementById("factura").value.trim();
+
+    // Validación de email
+    if (email !== verifyEmail) {
+        alert("Los correos electrónicos no coinciden.");
+        return;
+    }
+
+    try {
+        // Comprobar si la factura ya está registrada
+        const facturaQuery = query(collection(db, "participants"), where("factura", "==", factura));
+        const facturaSnapshot = await getDocs(facturaQuery);
+
+        if (!facturaSnapshot.empty) {
+            alert("El número de factura ya está registrado. Por favor, verifica tus datos.");
+            return;
+        }
+
+        // Guardar datos en Firestore
+        await addDoc(collection(db, "participants"), {
+            nombre,
+            apellidos,
+            email,
+            factura,
+            fechaRegistro: new Date().toISOString()
+        });
+
+        alert("¡Registro exitoso! Estás participando en el sorteo.");
+        form.reset();
+
+        // Actualizar el contador tras un nuevo registro
+        updateParticipantCount();
+
+    } catch (error) {
+        console.error("Error al guardar los datos:", error);
+        alert("Hubo un error al enviar tus datos. Inténtalo nuevamente.");
+    }
+});
+
+// Actualizar el contador al cargar la página
+updateParticipantCount();
