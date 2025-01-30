@@ -17,31 +17,21 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Referencia al formulario
+// Referencia al formulario y al contador
 const form = document.getElementById("registrationForm");
-
-// Escuchar el envío del formulario
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-// Contador de participantes
 const participantCountElement = document.getElementById("participantCount");
 
 // Función para obtener el conteo de participantes
 async function updateParticipantCount() {
     try {
-        // Obtener todos los documentos en la colección "participants"
         const participantsSnapshot = await getDocs(collection(db, "participants"));
-        const count = participantsSnapshot.size;
-
-        // Actualizar el contador en la interfaz
-        participantCountElement.textContent = count;
+        participantCountElement.textContent = participantsSnapshot.size; // Actualiza la interfaz
     } catch (error) {
         console.error("Error al obtener el conteo de participantes:", error);
     }
 }
 
-// Incrementar el contador cuando alguien participa
+// Escuchar el envío del formulario (corregido)
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -90,3 +80,4 @@ form.addEventListener("submit", async (e) => {
 
 // Actualizar el contador al cargar la página
 updateParticipantCount();
+
