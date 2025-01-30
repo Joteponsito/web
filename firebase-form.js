@@ -26,6 +26,7 @@ async function updateParticipantCount() {
     try {
         const participantsSnapshot = await getDocs(collection(db, "participants"));
         participantCountElement.textContent = participantsSnapshot.size; // Actualiza la interfaz
+        console.log("Contador actualizado:", participantsSnapshot.size);
     } catch (error) {
         console.error("Error al obtener el conteo de participantes:", error);
     }
@@ -70,10 +71,13 @@ form.addEventListener("submit", async (e) => {
         form.reset();
 
         // Actualizar el contador tras un nuevo registro
-        updateParticipantCount();
+        await updateParticipantCount();
 
-        // Redirigir a la página de confirmación
-        window.location.href = "Form copy.html";
+        // Redirigir después de un pequeño retraso
+        console.log("Redirigiendo...");
+        setTimeout(() => {
+            window.location.href = "Form copy.html";
+        }, 1000); // Espera 1 segundo antes de redirigir
 
     } catch (error) {
         console.error("Error al guardar los datos:", error);
