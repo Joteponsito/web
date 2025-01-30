@@ -67,7 +67,9 @@ form.addEventListener("submit", async (e) => {
         });
 
         alert("¡Registro exitoso! Estás participando en el sorteo.");
+        window.location.href = "Form copy.html";
         form.reset();
+     
 
         // Actualizar el contador tras un nuevo registro
         updateParticipantCount();
