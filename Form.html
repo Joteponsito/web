@@ -12,7 +12,7 @@
 <body>
     <header class="header">
         <div class="social-icons">
-           <a href="https://www.instagram.com/servicentrocruzdelsur" target="_blank" class="icon">
+            <a href="https://www.instagram.com/servicentrocruzdelsur/" target="_blank" class="icon">
                 <i class="fab fa-instagram"></i>
             </a>
             <a href="https://www.facebook.com/profile.php?id=100070889284610" target="_blank" class="icon">
@@ -23,15 +23,11 @@
     </header>
 
     <div class="share-menu" id="shareMenu">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://joteponsito.github.io/web/" target="_blank">
-            <i class="fab fa-facebook-f"></i> Compartir en Facebook
-        </a>
-        <a href="https://api.whatsapp.com/send?text=https://joteponsito.github.io/web/" target="_blank">
-            <i class="fab fa-whatsapp"></i> Compartir en WhatsApp
-        </a>
-        <a href="#" onclick="alert('Copia este enlace para compartir en Instagram Stories: https://joteponsito.github.io/web/')">
-            <i class="fab fa-instagram"></i> Compartir en Instagram
-        </a>
+        <ul>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=PAGE_URL" target="_blank">Facebook</a></li>
+            <li><a href="https://api.whatsapp.com/send?text=PAGE_URL" target="_blank">WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/share?url=PAGE_URL" target="_blank">Instagram</a></li>
+        </ul>
     </div>
 
     <div class="form-container">
@@ -53,29 +49,20 @@
             <div class="form-group">
                 <input type="text" id="factura" name="factura" placeholder="Número de factura (compras mayores a 10,000 de combustible)*" required>
             </div>
-         <div class="checkbox-group">
+
+            <div class="checkbox-group">
                 <label>
                     <input type="checkbox" name="terms" required>
-                    He leído y acepto las <a href="#" id="openTerms">condiciones de uso</a>.
+                    He leído y acepto las <a href="conduso.html" target="_blank">condiciones de uso</a>.
                 </label>
                 <label>
                     <input type="checkbox" name="privacy" required>
-                    He leído y acepto la <a href="#" id="openPrivacy">política de privacidad</a>.
+                    He leído y acepto la <a href="politicaspriv.html" target="_blank">política de privacidad</a>.
                 </label>
             </div>
-            <button type="submit" class="submit-button">Enviar</button>
+
+            <button type="submit" class="submit-button" >Enviar</button>
         </form>
     </div>
-
-    <div id="myModal" class="modal">
-    <div class="modal-content">
-        <!-- Botón de cerrar -->
-        <span class="close-button">&times;</span>
-        <!-- Aquí se carga el contenido dinámicamente -->
-        <div id="modalContent"></div>
-    </div>
-</div>
-
-    <script src="modal.js">  </script>
 </body>
 </html>
