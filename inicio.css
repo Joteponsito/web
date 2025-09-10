@@ -65,7 +65,10 @@ body {
     line-height: 1.5;
     display: block; /* Cada elemento en una línea */
 }
-
+.imagen{
+    width: 120px;
+    height: 70px;
+}
 /* Botón */
 .fancy-button {
     background: linear-gradient(135deg, #6e8efb, #a777e3);
@@ -214,4 +217,5 @@ body {
         margin-left: 30%;
         margin-top: 3%;
         
+
     }
