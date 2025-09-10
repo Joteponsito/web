@@ -46,6 +46,10 @@ body {
     text-decoration: none;
     transition: color 0.3s ease;
 }
+.imagen{
+    width: 120px;
+    height: 70px;
+}
 
 .icon:hover {
     color: #6e8efb;
@@ -184,4 +188,5 @@ input[type="email"] {
 
 .submit-button:hover {
     background-color: #4d6bbf;
+
 }
